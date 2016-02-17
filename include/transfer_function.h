@@ -18,8 +18,10 @@
 /* ================================================================================== */
 
 #pragma once
+#define TF_MAX_ARGS 0xFF
 
-struct PID_controller
+typedef struct
 {
-   
-}
+   double* numerator;
+   double* denominator;
+} PROCOLIB_TF;

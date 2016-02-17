@@ -28,10 +28,11 @@
 */
 #define PROCOLIB_VERSION  0x00000001
 
+/* ================================================================================== */
+/*    Macro definitions for exporting dynamic library.                                */
+/* ================================================================================== */
+      
 
-/*
-      Macro definitions for exporting dynamic library.
-*/
 #if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(_WIN64)
     #define PROCOLIB_STDCALL _stdcall
     #define PROCOLIB_DECLSPEC __declspec
@@ -44,8 +45,16 @@
   #define PROCOLIB_API PROCOLIB_STDCALL
 #endif
 
+/* ================================================================================== */
+/*    Error codes.                                                                    */
+/* ================================================================================== */
 typedef enum PROCOLIB_ERROR_CODE
 {
   PROCOLIB_NO_ERROR,
   PROCOLIB_ERR_WRONG_ARGUMENT
 };
+
+/* ================================================================================== */
+/*    procolib, types definitions. Forward declarations                               */
+/* ================================================================================== */
+typedef PROCOLIB_TF PROCOLIB_TF;
