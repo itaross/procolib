@@ -1,2 +1,2 @@
 #pragma once
-#include "../include/transfer_function.h"
+#include "transfer_function.h"

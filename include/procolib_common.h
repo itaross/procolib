@@ -26,7 +26,10 @@
         CC = private feature (or major bug);
         DD = bug fixing (current development).
 */
-#define PROCOLIB_VERSION  0x00000001
+#define PROCOLIB_VERSION_MAJOR  @PROCOLIB_VERSION_MAJOR@
+#define PROCOLIB_VERSION_MINOR @PROCOLIB_VERSION_MINOR@
+#define PROCOLIB_VERSION_PRIVATE_FEATURE @PROCOLIB_PRIVATE_FEATURE@
+#define PROCOLIB_VERSION_BUGFIXING @PROCOLIB_VERSION_BUGFIXING@
 
 /* ================================================================================== */
 /*    Macro definitions for exporting dynamic library.                                */
