@@ -26,38 +26,44 @@
         CC = private feature (or major bug);
         DD = bug fixing (current development).
 */
-#define PROCOLIB_VERSION_MAJOR  @PROCOLIB_VERSION_MAJOR@
-#define PROCOLIB_VERSION_MINOR @PROCOLIB_VERSION_MINOR@
-#define PROCOLIB_VERSION_PRIVATE_FEATURE @PROCOLIB_PRIVATE_FEATURE@
-#define PROCOLIB_VERSION_BUGFIXING @PROCOLIB_VERSION_BUGFIXING@
+#define PROCOLIB_VERSION_MAJOR            0x00
+#define PROCOLIB_VERSION_MINOR            0x01
+#define PROCOLIB_VERSION_PRIVATE_FEATURE  0x00
+#define PROCOLIB_VERSION_BUGFIXING        0x00
 
 /* ================================================================================== */
 /*    Macro definitions for exporting dynamic library.                                */
 /* ================================================================================== */
       
-
 #if defined(WIN32) || defined(_WIN32) || defined(__WIN32__) || defined(_WIN64)
     #define PROCOLIB_STDCALL _stdcall
     #define PROCOLIB_DECLSPEC __declspec
     #define PROCOLIB_DLLEXPORT ( dllexport )
 #endif
 
-#ifdef DLL_EXPORTS
+#if defined procolib_EXPORTS
   #define PROCOLIB_API PROCOLIB_DECLSPEC PROCOLIB_DLLEXPORT PROCOLIB_STDCALL
 #else
   #define PROCOLIB_API PROCOLIB_STDCALL
 #endif
 
-/* ================================================================================== */
-/*    Error codes.                                                                    */
-/* ================================================================================== */
-typedef enum PROCOLIB_ERROR_CODE
-{
-  PROCOLIB_NO_ERROR,
-  PROCOLIB_ERR_WRONG_ARGUMENT
-};
+#ifndef NULL
+   #define NULL ( (void *) 0)
+#endif
 
 /* ================================================================================== */
 /*    procolib, types definitions. Forward declarations                               */
 /* ================================================================================== */
-typedef PROCOLIB_TF PROCOLIB_TF;
+//typedef PROCOLIB_TF PROCOLIB_TF;
+typedef struct TransferFunction TransferFunction;
+
+/* ================================================================================== */
+/*    Error codes.                                                                    */
+/* ================================================================================== */
+typedef enum
+{
+  PROCOLIB_NO_ERROR,                            // No errors: all went ok.
+  PROCOLIB_ERR_BAD_ARGUMENT,                    // Wrong argument.             
+  PROCOLIB_ERR_INVALID_POINTER_ARGUMENT,        // Invalid pointer passed as argument.  
+  PROCOLIB_RESULT_FORCEINT = 65536              // Makes sure this enum is signed 32bit.
+} PROCOLIB_RESULT;

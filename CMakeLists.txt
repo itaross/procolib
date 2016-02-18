@@ -21,17 +21,10 @@
 
 cmake_minimum_required(VERSION 2.8)
 
-#set version numbers
-set(PROCOLIB_VERSION_MAJOR 0)
-set(PROCOLIB_VERSION_MINOR 1)
-
 # Project's name
 project(procolib)
+include_directories($(CMAKE_SOURCE_DIR)/include)
+message($(CMAKE_SOURCE_DIR)/include)
 
-# Set the output folder where your program will be created
-set(CMAKE_BINARY_DIR ${CMAKE_SOURCE_DIR}/bin)
-set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR})
-set(LIBRARY_OUTPUT_PATH ${CMAKE_BINARY_DIR})
-
-# The following folder will be included
-include_directories("${PROJECT_SOURCE_DIR}")
+# Create a target for the library
+add_library(procolib SHARED src/transfer_function.c)

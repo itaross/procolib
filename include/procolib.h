@@ -18,7 +18,6 @@
 /* ================================================================================== */
 
 #pragma once
-
 #include "procolib_common.h"
 
 #ifdef __cplusplus
@@ -26,8 +25,7 @@ extern "C"
 {
 #endif
 
-
-  
+PROCOLIB_RESULT PROCOLIB_API create_transfer_function    (TransferFunction* tf, const double* numerator, const int numerator_count, const double* denominator, const int denominator_count);
 
 #ifdef __cplusplus  
 }
